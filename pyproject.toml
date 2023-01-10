@@ -8,6 +8,10 @@ packages = []
 
 [tool.poetry.dependencies]
 python = "^3.10"
+fastapi = {extras = ["all"], version = "^0.89.0"}
+dropbox = "^11.36.0"
+redis = "^4.4.1"
+python-dotenv = "^0.21.0"
 
 
 [build-system]

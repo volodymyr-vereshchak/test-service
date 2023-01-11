@@ -14,7 +14,7 @@ async def upload_file(file: UploadFile, key: str, response: Response):
         try:
             dbx_serv.upload_file(file, redis_serv.check_key(key))
         except dropbox.exceptions.ApiError:
-            response.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
+            response.status_code = status.HTTP_400_BAD_REQUEST
         else:
             redis_serv.set_key(key)
 
@@ -28,4 +28,4 @@ async def get_data_by_key(key: str, response: Response) -> str|None:
         try:
             dbx_serv.download_file()
         except dropbox.exceptions.ApiError:
-            response.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
+            response.status_code = status.HTTP_400_BAD_REQUEST

@@ -7,6 +7,9 @@ Using dropbox for storing binary data, and redis for work with keys. Redis used 
 ```shell
 git clone https://github.com/volodymyr-vereshchak/test-service.git
 cd test-service
+python -m venv venv
+pip install poetry
+poetry install
 run redis
 initialize enviroment variables, sample: .env.sample
 uvicorn api_service.main:app - for run server
